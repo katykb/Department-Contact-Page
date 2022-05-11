@@ -25,7 +25,7 @@ const buildTeam = () => {
       },
     ])
     .then(function (value) {
-      switch (value.buildTeam) {
+      switch (value.role) {
         case "Engineer":
           addEngineer();
           break;
@@ -39,57 +39,58 @@ const buildTeam = () => {
 };
 
 const createManager = () => {
-  inquirer.prompt([
-    {
-      type: "input",
-      message: "Please enter Manager's name.",
-      name: "name",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Plese provide name to continue.";
-        }
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Please enter Manager's name.",
+        name: "name",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Plese provide name to continue.";
+          }
+        },
       },
-    },
-    {
-      type: "input",
-      message: "Please enter manager's Employee ID.",
-      name: "id",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Please enter ID to continue.";
-        }
+      {
+        type: "input",
+        message: "Please enter manager's Employee ID.",
+        name: "id",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Please enter ID to continue.";
+          }
+        },
       },
-    },
-    {
-      type: "input",
-      message: "Please enter manager's email address.",
-      name: "email",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Please enter email address to continue.";
-        }
+      {
+        type: "input",
+        message: "Please enter manager's email address.",
+        name: "email",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Please enter email address to continue.";
+          }
+        },
       },
-    },
-    {
-      type: "input",
-      message: "Please enter Manager's office number.",
-      name: "office",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Please enter office number to continue.";
-        }
+      {
+        type: "input",
+        message: "Please enter Manager's office number.",
+        name: "office",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Please enter office number to continue.";
+          }
+        },
       },
-    },
-  ]).then(
-    (answers) => {
+    ])
+    .then((answers) => {
       console.log(answers);
       const manager = new Manager(
         answers.name,
@@ -99,8 +100,7 @@ const createManager = () => {
       );
       myTeam.push(manager);
       buildTeam();
-    }
-  );
+    });
 };
 
 function addEngineer() {
@@ -117,7 +117,7 @@ function addEngineer() {
         }
       },
     },
-  ]),
+  
     {
       type: "input",
       message: "Enter engineer's employee ID.",
@@ -153,84 +153,83 @@ function addEngineer() {
           return "Pleae enter github acocunt info to contine";
         }
       },
-    }.then(
-      (answers) => {
-        console.log(answers);
-        const engineer = new Engineer(
-          answers.name,
-          answers.id,
-          answers.email,
-          answers.github
-        );
-        myTeam.push(engineer);
-        buildTeam();
-      }
-    );
+    }]).then((answers) => {
+      console.log(answers);
+      const engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.github
+      );
+      myTeam.push(engineer);
+      buildTeam();
+    });
 }
 
 function addIntern() {
-  inquirer.prompt([
-    {
-      type: "input",
-      name: "name",
-      message: "Please enter the intern's name",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          ("Enter a name to proceed.");
-        }
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Please enter the intern's name",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            ("Enter a name to proceed.");
+          }
+        },
       },
-    },
-  ]),
-    {
-      type: "input",
-      message: "Enter intern's employee ID.",
-      name: "id",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Please enter ID to continue.";
-        }
+
+      {
+        type: "input",
+        message: "Enter intern's employee ID.",
+        name: "id",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Please enter ID to continue.";
+          }
+        },
       },
-    },
-    {
-      type: "input",
-      message: "Enter intern's email. ",
-      name: "email",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Please enter intern's email to continue.";
-        }
+      {
+        type: "input",
+        message: "Enter intern's email. ",
+        name: "email",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Please enter intern's email to continue.";
+          }
+        },
       },
-    },
-    {
-      type: "input",
-      message: "Please enter the intern's college name",
-      name: "school",
-      validate: (value) => {
-        if (value) {
-          return true;
-        } else {
-          return "Pleae enter school name to contine";
-        }
+      {
+        type: "input",
+        message: "Please enter the intern's college name",
+        name: "school",
+        validate: (value) => {
+          if (value) {
+            return true;
+          } else {
+            return "Pleae enter school name to contine";
+          }
+        },
       },
-    }.then(
-      (answers) => {
-        console.log(answers);
-        const intern = new Intern(
-          answers.name,
-          answers.id,
-          answers.email,
-          answers.school
-        );
-        myTeam.push(intern);
-        buildTeam();
-      }
-    );
+    ])
+    .then((answers) => {
+      console.log(answers);
+      const intern = new Intern(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school
+      );
+      myTeam.push(intern);
+      buildTeam();
+    });
 }
 
 // };
