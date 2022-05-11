@@ -1,29 +1,29 @@
 const Intern = require ("../lib/Intern.js");
-const intern = new Intern ("Katy Brown", "110474", "katybr35@gmail.com", "2B");
+const intern = new Intern ("Katy Brown", "110474", "katybr35@gmail.com", "UNT");
 
 test("Get the correct values from the Intern constructor function.", () => {
-  expect(intern.name).toBe("Katy Brown");
-  expect(intern.id).toBe("110474");
-  expect(intern.email).toBe("katybr35@gmail.com");
-  expect(intern.school).toBe("UNT");
+  expect(intern.name).toEqual("Katy Brown");
+  expect(intern.id).toEqual("110474");
+  expect(intern.email).toEqual("katybr35@gmail.com");
+  expect(intern.school).toEqual("UNT");
 });
 
 test("Will getName() give us the student name?", () => {
-  expect(intern.getName().toBe("Katy Brown"));
+  expect(intern.getName().toEqual("Katy Brown"));
 });
 
 test("Will the getId() method give us the student's ID?", () => {
-  expect(intern.getId().toBe("110474"));
+  expect(intern.getId().toEqual("110474"));
 });
 
 test("Will the getEmail() method give us the student's email?", () => {
-  expect(intern.getEmail().toBe("katybr35@gmail.com"));
+  expect(intern.getEmail().toEqual("katybr35@gmail.com"));
 });
 
 test('Will the getSchool() return the students college name?', () =>{
-    expect(intern.getSchool().toBe('UNT'));
+    expect(intern.getSchool().toEqual('UNT'));
 })
 
 test("Will the getRole() return Intern?", () => {
-  expect(intern.getRole().toBe("Intern"));
+  expect(intern.getRole().toEqual("Intern"));
 });

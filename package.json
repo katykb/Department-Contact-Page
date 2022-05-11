@@ -4,7 +4,7 @@
   "description": "Enter and organize information about team members so that you can access their info quickly.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
