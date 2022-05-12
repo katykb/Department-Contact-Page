@@ -241,14 +241,22 @@ const addHTML = () => {
   let role;
   for (let i = 0; i < myTeam.length; i++) {
     if (myTeam[i].getRole() === "Engineer") {
-      role = `</i> <p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
-      <p><a href="${myTeam[i].getGithub()}" "class=card-link">Github: ${myTeam[i].getGithub()} </a>
+      role = `</i> <p class="card-text"><span class="material-symbols-outlined">
+      dvr
+      </span> Role: ${myTeam[i].getRole()}.</p>
+      <p><a href="${myTeam[i].getGithub()}" "class=card-link">Github: ${myTeam[
+        i
+      ].getGithub()} </a>
       <p>`;
     } else if (myTeam[i].getRole() === "Intern") {
-      role = `<p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
+      role = `<p class="card-text"><span class="material-symbols-outlined">
+      school
+      </span> Role: ${myTeam[i].getRole()}.</p>
       <p class="card-text">School Name: ${myTeam[i].getSchool()}.</p>`;
     } else if (myTeam[i].getRole() === "Manager") {
-      role = `<p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
+      role = `<p class="card-text"> <span class="material-symbols-outlined">
+      work
+      </span> Role: ${myTeam[i].getRole()}.</p>
       <p class="card-text">Office Number: ${myTeam[i].getOffice()}.</p>`;
     }
     employeeCard += `
@@ -258,7 +266,9 @@ const addHTML = () => {
       <h5 class="card-title text-center">${myTeam[i].getName()}</h5>
       <h6 class="card-subtitle mb-2">Id: ${myTeam[i].getId()}</h6>
       ${role}      
-      <a href="mailto:${myTeam[i].getEmail()}" class="card-link">Email: ${myTeam[i].getEmail()} </a>
+      <a href="mailto:${myTeam[
+        i
+      ].getEmail()}" class="card-link">Email: ${myTeam[i].getEmail()} </a>
       </div>
     </div>
   </div>`;
@@ -272,7 +282,10 @@ const addHTML = () => {
   
       <!-- Bootstrap CSS -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel=stylesheet href='./style.css'>
+      <!-- Link to Google Icons -->
+      <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+      <!-- Link to my CSS -->
+      <link rel=stylesheet href='./style.css'>
       <title>My Team</title>
     </head>
     <body>
