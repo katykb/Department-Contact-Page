@@ -13,8 +13,7 @@ Please visit the google drive link to watch the app in use.
 https://drive.google.com/file/d/1GROOyOexxCsPr54156EIMj5b4wd6EOnh/view
 
 Snapshot of the Contact Sheet in the browser:
-![image](https://user-images.githubusercontent.com/97707793/168141097-2cdf92bb-ce08-40a9-95f9-341f4ff323b7.png)
-
+![image](https://user-images.githubusercontent.com/97707793/168142610-860891a2-6853-4e5f-a039-69db21b96f31.png)
 
 ### Description
       User Story:
