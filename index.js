@@ -241,23 +241,24 @@ const addHTML = () => {
   let role;
   for (let i = 0; i < myTeam.length; i++) {
     if (myTeam[i].getRole() === "Engineer") {
-      role = `<p class="card-text">Role: ${myTeam[i].getRole()}.</p>
-      <p><a href="Github:${myTeam[i].getGithub()}" class="card-link">Github:</a><p>`;
+      role = `</i> <p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
+      <p><a href="${myTeam[i].getGithub()}" "class=card-link">Github: ${myTeam[i].getGithub()} </a>
+      <p>`;
     } else if (myTeam[i].getRole() === "Intern") {
-      role = `<p class="card-text">Role: ${myTeam[i].getRole()}.</p>
+      role = `<p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
       <p class="card-text">School Name: ${myTeam[i].getSchool()}.</p>`;
     } else if (myTeam[i].getRole() === "Manager") {
-      role = `<p class="card-text">Role: ${myTeam[i].getRole()}.</p>
+      role = `<p class="card-text"> Role: ${myTeam[i].getRole()}.</p>
       <p class="card-text">Office Number: ${myTeam[i].getOffice()}.</p>`;
     }
-    employeeCard += `<div class="row">
-    <div class="col-3">
-    <div class="card" style="width: 18rem;">
+    employeeCard += `
+    <div class="col-4 mt-4">
+    <div class="card h-100" style="width: 18rem; display:inline-block">
     <div class="card-body">
       <h5 class="card-title text-center">${myTeam[i].getName()}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Id: ${myTeam[i].getId()}</h6>
+      <h6 class="card-subtitle mb-2">Id: ${myTeam[i].getId()}</h6>
       ${role}      
-      <a href="mailto:${myTeam[i].getEmail()}" class="card-link">Email</a>
+      <a href="mailto:${myTeam[i].getEmail()}" class="card-link">Email: ${myTeam[i].getEmail()} </a>
       </div>
     </div>
   </div>`;
@@ -297,7 +298,9 @@ const addHTML = () => {
   fs.writeFileSync("index.html", format, (error) => {
     if (error) throw error;
   });
-  console.log(format);
+  console.log(
+    "Your html doc has been created! Open and view in browser to see your team chart!"
+  );
 };
 
 createManager();
